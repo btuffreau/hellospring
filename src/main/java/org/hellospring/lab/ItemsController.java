@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class ItemsController {
 
-	  private static final String template = "Hello, %s!";
+	  private static final String template = "That is %s!";
 	  private final AtomicLong counter = new AtomicLong();
 
 	  @GetMapping("/items")
 	  @ResponseBody
-	  public Items showInventory(@RequestParam(name="name", required=false, defaultValue="emppy") String name) {
+	  public Items showInventory(@RequestParam(name="name", required=false, defaultValue="empty") String name) {
 	    return new Items(counter.incrementAndGet(), String.format(template, name));
 	  }
 
